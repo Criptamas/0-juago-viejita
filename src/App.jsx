@@ -10,6 +10,8 @@ function App() {
     const boardFromStorage = window.localStorage.getItem('board');
     return boardFromStorage ? JSON.parse(boardFromStorage) :  Array(9).fill(null)
   });
+
+
   const [turn, setTurn]= useState(()=>{
     console.log('Inicializar estado del turno');
     const turnFromStorage = window.localStorage.getItem('turn');
@@ -17,6 +19,7 @@ function App() {
   
     TURNS.x
   });
+  
   const [winner, setWinner] = useState(null);
 
 
