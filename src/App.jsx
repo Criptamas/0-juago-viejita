@@ -1,7 +1,7 @@
 import confetti from 'canvas-confetti';
 import { useState } from "react";
 import { Square } from './components/Square.jsx';
-import { TURNS,  WINNER_COMBOS } from './components/Constants.jsx'; 
+import { TURNS, checkWinner} from './components/Constants.jsx'; 
 
 function App() {
 
@@ -19,22 +19,7 @@ function App() {
   });
   const [winner, setWinner] = useState(null);
 
-  const  checkWinner= (boardToCheck)=>{
-    //revisamos todas las combinaciones ganadoras
-    for(const combo of WINNER_COMBOS){
-      const [a, b, c]= combo;
-      if( 
-        boardToCheck[a] &&
-        boardToCheck[a] === boardToCheck[b] &&
-        boardToCheck[a] === boardToCheck[c]
-        ){
-          return boardToCheck[a]
-        }
-    }
-    //si no hay ganador 
-    return null;
-   
-  }
+
 
 //Funcion para reiniciar el juego 
   const resetGame= ()=>{
